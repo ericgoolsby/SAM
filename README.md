@@ -2,9 +2,12 @@
 
 1. Install prerequisite packages, as follows:
 ```
-if (!requireNamespace("tidyverse", quietly=TRUE))		install.packages("tidyverse")
-if (!requireNamespace("qqman", quietly=TRUE))		install.packages("qqman")
-if (!requireNamespace("BiocManager", quietly=TRUE))	install.packages("BiocManager")
+if (!requireNamespace("tidyverse", quietly=TRUE))
+  install.packages("tidyverse")
+if (!requireNamespace("qqman", quietly=TRUE))
+  install.packages("qqman")
+if (!requireNamespace("BiocManager", quietly=TRUE))
+  install.packages("BiocManager")
 if (!requireNamespace("gdsfmt", quietly=TRUE))
 	BiocManager::install("gdsfmt")
 if (!requireNamespace("SNPRelate", quietly=TRUE))
@@ -13,7 +16,9 @@ if (!requireNamespace("SNPRelate", quietly=TRUE))
 
 2. Install the SAM package, as follows:
 ```
-install.packages("https://github.com/ericgoolsby/SAM/raw/main/data-raw/SAM_0.0.0.9000.zip",repos = NULL)
+install.packages(
+  "https://github.com/ericgoolsby/SAM/raw/main/data-raw/SAM_0.0.0.9000.zip",
+  repos = NULL)
 ```
 
 3. Run the following code (this creates a directory for pipeline files):
