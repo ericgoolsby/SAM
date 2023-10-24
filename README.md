@@ -52,9 +52,10 @@ SAM::set_project(name = "SAM_Example",RStudio_project = TRUE)
 
 
 ## Running the Pipeline
-1. Open the RStudio project and load the SAM R package as follows: 
+1. Open the RStudio project and load the SAM R package and SNP data as follows: 
 ```
 library(SAM)
+SAM::get_snp_data()
 ```
 2. As you did previously, run the following code (replace "SAM_Example" with your project name).
 ```
