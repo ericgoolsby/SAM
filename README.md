@@ -1,4 +1,12 @@
-### Installation
+[Installation](#installation)
+
+[Starting a New Project](#starting-a-new-project)
+
+[Running the Pipeline](#running-the-pipeline)
+
+## Installation
+
+NOTE: This will only work on a Windows operating system.
 
 1. Install prerequisite packages, as follows:
 ```
@@ -43,7 +51,7 @@ SAM::set_project(name = "SAM_Example",RStudio_project = TRUE)
 ```
 
 
-### Running the pipeline
+## Running the Pipeline
 1. Open the RStudio project and load the SAM R package as follows: 
 ```
 library(SAM)
