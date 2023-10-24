@@ -1,3 +1,5 @@
+NOTE: This will only work on a Windows operating system.
+
 [Installation](#installation)
 
 [Starting a New Project](#starting-a-new-project)
@@ -5,8 +7,6 @@
 [Running the Pipeline](#running-the-pipeline)
 
 ## Installation
-
-NOTE: This will only work on a Windows operating system.
 
 1. Install prerequisite packages, as follows:
 ```
@@ -22,7 +22,7 @@ if (!requireNamespace("SNPRelate", quietly=TRUE))
 	BiocManager::install("SNPRelate")
 ```
 
-2. Install the SAM package, as follows:
+2. Install the SAM package, as follows. If you have trouble installing, try closing and restarting RStudio (If issues persist, send a message with the error message).
 ```
 install.packages(
   "https://github.com/ericgoolsby/SAM/raw/main/data-raw/SAM_0.0.0.9000.zip",
