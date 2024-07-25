@@ -8,7 +8,9 @@ NOTE: This will only work on a Windows operating system.
 
 ## Installation
 
-1. Install prerequisite packages, as follows:
+1. Download and install Java: https://www.java.com/en/download/ **NOTE**: You may need to install both the 32-bit and 64-bit versions.
+
+2. Install prerequisite packages, as follows:
 ```
 if (!requireNamespace("tidyverse", quietly=TRUE))
   install.packages("tidyverse")
@@ -20,16 +22,30 @@ if (!requireNamespace("gdsfmt", quietly=TRUE))
 	BiocManager::install("gdsfmt")
 if (!requireNamespace("SNPRelate", quietly=TRUE))
 	BiocManager::install("SNPRelate")
+if (!requireNamespace("BEDMatrix", quietly=TRUE))
+  BiocManager::install("BEDMatrix")
+if (!requireNamespace("zip", quietly=TRUE))
+  BiocManager::install("zip")
+if (!requireNamespace("Rfast", quietly=TRUE))
+  BiocManager::install("Rfast")
+if (!requireNamespace("ggrepel", quietly=TRUE))
+  BiocManager::install("ggrepel")
+if (!requireNamespace("ggpubr", quietly=TRUE))
+  BiocManager::install("ggpubr")
+if (!requireNamespace("urltools", quietly=TRUE))
+  BiocManager::install("urltools")
+if (!requireNamespace("xlsx", quietly=TRUE))
+  BiocManager::install("xlsx")
 ```
 
-2. Install the SAM package, as follows. If you have trouble installing, try closing and restarting RStudio (If issues persist, send a message with the error message).
+3. Install the SAM package, as follows. If you have trouble installing, try closing and restarting RStudio (If issues persist, send a message with the error message).
 ```
 install.packages(
   "https://github.com/ericgoolsby/SAM/raw/main/data-raw/SAM_0.0.0.9000.zip",
   repos = NULL)
 ```
 
-3. Run the following code (this creates a directory for pipeline files):
+4. Run the following code (this creates a directory for pipeline files):
 ```
 SAM::set_SAM_dir()
 ```
@@ -65,13 +81,19 @@ SAM::set_project(name = "SAM_Example",RStudio_project = TRUE)
 ```
 data <- read.csv("data.csv")
 ```
-4. If you want to run every trait in the csv file, you can simply run the following:
+4. Run the following code to perform GWAS on every trait in the csv file:
+```
+traits <- colnames(data)[2:ncol(data)]
+gwas_output <- vector("list",length = length(traits))
+
+for(i in 1:length(traits))
+{
+  gwas_output[[i]] <- SAM::gwas(data = data,trait = traits[i])
+}
+```
+5. Finally, run the pipeline:
 ```
 run_pipeline(data = data)
 ```
 
-Alternatively, if you want to select only a subset of traits, you'll need to set that manually:
-```
-traits <- colnames(data)[2:ncol(data)]
-run_pipeline(data = data,traits = traits)
-```
+Results can be found in the `Results` folder of the RStudio project directory, in a spreadsheet named `results.xlsx`. Manhattan plots are located in the `Plots` folder. More extensive (but less human-readable) pipeline outputs can be found in the `Tables` folder.
