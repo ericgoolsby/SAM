@@ -10,7 +10,9 @@ NOTE: This will only work on a Windows operating system.
 
 1. Download and install Java: https://www.java.com/en/download/ **NOTE**: You may need to install both the 32-bit and 64-bit versions.
 
-2. Install prerequisite packages, as follows:
+2. Download and install Rtools (this is NOT an R package -- you have to download it from the website): https://cran.r-project.org/bin/windows/Rtools/ **NOTE** Be sure to select the version of Rtools that correspods to your version of R.
+
+3. Install prerequisite packages, as follows:
 ```
 if (!requireNamespace("tidyverse", quietly=TRUE))
   install.packages("tidyverse")
@@ -38,14 +40,14 @@ if (!requireNamespace("xlsx", quietly=TRUE))
   BiocManager::install("xlsx")
 ```
 
-3. Install the SAM package, as follows. If you have trouble installing, try closing and restarting RStudio (If issues persist, send a message with the error message).
+4. Install the SAM package, as follows. If you have trouble installing, try closing and restarting RStudio (If issues persist, send a message with the error message).
 ```
 install.packages(
   "https://github.com/ericgoolsby/SAM/raw/main/data-raw/SAM_0.0.0.9000.zip",
   repos = NULL)
 ```
 
-4. Run the following code (this creates a directory for pipeline files):
+5. Run the following code (this creates a directory for pipeline files):
 ```
 SAM::set_SAM_dir()
 ```
